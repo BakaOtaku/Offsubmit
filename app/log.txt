@@ -1,0 +1,280 @@
+[ +298 ms] executing: [/home/ashutosh/flutter/] git -c log.showSignature=false log -n 1 --pretty=format:%H
+[  +92 ms] Exit code 0 from: git -c log.showSignature=false log -n 1 --pretty=format:%H
+[   +1 ms] bbfbf1770cca2da7c82e887e4e4af910034800b6
+[   +3 ms] executing: [/home/ashutosh/flutter/] git tag --contains HEAD
+[ +523 ms] Exit code 0 from: git tag --contains HEAD
+[        ] 1.20.2
+[  +25 ms] executing: [/home/ashutosh/flutter/] git rev-parse --abbrev-ref --symbolic @{u}
+[  +10 ms] Exit code 0 from: git rev-parse --abbrev-ref --symbolic @{u}
+[        ] origin/stable
+[        ] executing: [/home/ashutosh/flutter/] git ls-remote --get-url origin
+[   +9 ms] Exit code 0 from: git ls-remote --get-url origin
+[        ] https://github.com/flutter/flutter.git
+[ +109 ms] executing: [/home/ashutosh/flutter/] git rev-parse --abbrev-ref HEAD
+[  +11 ms] Exit code 0 from: git rev-parse --abbrev-ref HEAD
+[        ] stable
+[  +84 ms] Artifact Instance of 'AndroidMavenArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[   +4 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +28 ms] executing: /home/ashutosh/Android/Sdk/platform-tools/adb devices -l
+[  +72 ms] List of devices attached
+           JBAAGF08C383SR5        device usb:1-1 product:WW_X01BD model:ASUS_X01BDA device:ASUS_X01BD_2 transport_id:6
+[  +16 ms] /home/ashutosh/Android/Sdk/platform-tools/adb -s JBAAGF08C383SR5 shell getprop
+[  +99 ms] Artifact Instance of 'AndroidMavenArtifacts' is not required, skipping update.
+[   +8 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[ +309 ms] Found plugin downloads_path_provider at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/downloads_path_provider-0.1.0/
+[  +14 ms] Found plugin file_picker at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-1.13.3/
+[  +13 ms] Found plugin flutter_downloader at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_downloader-1.5.0/
+[   +5 ms] Found plugin flutter_plugin_android_lifecycle at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.8/
+[   +9 ms] Found plugin permission_handler at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-5.0.1+1/
+[ +185 ms] Found plugin downloads_path_provider at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/downloads_path_provider-0.1.0/
+[   +8 ms] Found plugin file_picker at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-1.13.3/
+[   +5 ms] Found plugin flutter_downloader at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_downloader-1.5.0/
+[   +3 ms] Found plugin flutter_plugin_android_lifecycle at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.8/
+[   +8 ms] Found plugin permission_handler at /home/ashutosh/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-5.0.1+1/
+[ +121 ms] Generating /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+[  +47 ms] ro.hardware = qcom
+[ +149 ms] Starting incremental build...
+[   +6 ms] Initializing file store
+[  +18 ms] Skipping target: gen_localizations
+[   +8 ms] complete
+[  +10 ms] Launching lib/main.dart on ASUS X01BDA in debug mode...
+[  +10 ms] /home/ashutosh/flutter/bin/cache/dart-sdk/bin/dart --disable-dart-dev /home/ashutosh/flutter/bin/cache/artifacts/engine/linux-x64/frontend_server.dart.snapshot --sdk-root /home/ashutosh/flutter/bin/cache/artifacts/engine/common/flutter_patched_sdk/ --incremental --target=flutter --debugger-module-names -Ddart.developer.causal_async_stacks=true --output-dill /tmp/flutter_tools.ZAJGZA/flutter_tool.UCCDLN/app.dill --packages .packages -Ddart.vm.profile=false -Ddart.vm.product=false --bytecode-options=source-positions,local-var-info,debugger-stops,instance-field-initializers,keep-unreachable-code,avoid-closure-call-instructions --enable-asserts --track-widget-creation --filesystem-scheme org-dartlang-root --initialize-from-dill build/cache.dill.track.dill
+[  +26 ms] executing: /home/ashutosh/Android/Sdk/platform-tools/adb -s JBAAGF08C383SR5 shell -x logcat -v time -t 1
+[  +82 ms] Exit code 0 from: /home/ashutosh/Android/Sdk/platform-tools/adb -s JBAAGF08C383SR5 shell -x logcat -v time -t 1
+[        ] --------- beginning of main
+           09-05 21:56:40.044 D/ThermalEngine( 1083): sensor_wait: msm_therm Wait start. 1000ms
+[   +3 ms] executing: /home/ashutosh/Android/Sdk/platform-tools/adb -s JBAAGF08C383SR5 shell -x logcat -v time -t 1
+[  +65 ms] Exit code 0 from: /home/ashutosh/Android/Sdk/platform-tools/adb -s JBAAGF08C383SR5 shell -x logcat -v time -t 1
+[        ] --------- beginning of main
+           09-05 21:56:40.044 D/ThermalEngine( 1083): sensor_wait: msm_therm Wait start. 1000ms
+[  +35 ms] <- compile package:app/main.dart
+[  +24 ms] executing: /home/ashutosh/Android/Sdk/platform-tools/adb version
+[  +10 ms] Android Debug Bridge version 1.0.41
+           Version 29.0.5-5949299
+           Installed as /home/ashutosh/Android/Sdk/platform-tools/adb
+[   +7 ms] executing: /home/ashutosh/Android/Sdk/platform-tools/adb start-server
+[  +38 ms] Building APK
+[  +49 ms] Running Gradle task 'assembleDebug'...
+[   +3 ms] gradle.properties already sets `android.enableR8`
+[   +9 ms] Using gradle from /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/android/gradlew.
+[   +2 ms] /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/android/gradlew mode: 33277 rwxrwxr-x.
+[  +16 ms] executing: /home/ashutosh/Downloads/android-studio/jre/bin/java -version
+[ +189 ms] Exit code 0 from: /home/ashutosh/Downloads/android-studio/jre/bin/java -version
+[        ] openjdk version "1.8.0_202-release"
+           OpenJDK Runtime Environment (build 1.8.0_202-release-1483-b49-5587405)
+           OpenJDK 64-Bit Server VM (build 25.202-b49-5587405, mixed mode)
+[   +7 ms] executing: [/home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/android/] /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/android/gradlew -Pverbose=true -Ptarget-platform=android-arm64 -Ptarget=/home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/lib/main.dart -Ptrack-widget-creation=true -Pfilesystem-scheme=org-dartlang-root assembleDebug
+[+1634 ms] Starting a Gradle Daemon (subsequent builds will be faster)
+[+18880 ms] > Task :app:compileFlutterBuildDebug
+[        ] [ +231 ms] executing: [/home/ashutosh/flutter/] git -c log.showSignature=false log -n 1 --pretty=format:%H
+[        ] [  +60 ms] Exit code 0 from: git -c log.showSignature=false log -n 1 --pretty=format:%H
+[        ] [        ] bbfbf1770cca2da7c82e887e4e4af910034800b6
+[        ] [   +1 ms] executing: [/home/ashutosh/flutter/] git tag --contains HEAD
+[        ] [ +359 ms] Exit code 0 from: git tag --contains HEAD
+[        ] [        ] 1.20.2
+[        ] [  +17 ms] executing: [/home/ashutosh/flutter/] git rev-parse --abbrev-ref --symbolic @{u}
+[        ] [  +10 ms] Exit code 0 from: git rev-parse --abbrev-ref --symbolic @{u}
+[        ] [        ] origin/stable
+[        ] [        ] executing: [/home/ashutosh/flutter/] git ls-remote --get-url origin
+[        ] [   +8 ms] Exit code 0 from: git ls-remote --get-url origin
+[        ] [        ] https://github.com/flutter/flutter.git
+[        ] [  +94 ms] executing: [/home/ashutosh/flutter/] git rev-parse --abbrev-ref HEAD
+[        ] [   +8 ms] Exit code 0 from: git rev-parse --abbrev-ref HEAD
+[        ] [        ] stable
+[        ] [  +56 ms] Artifact Instance of 'AndroidMavenArtifacts' is not required, skipping update.
+[   +1 ms] [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[   +1 ms] [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] [   +6 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] [  +11 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'AndroidMavenArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] [ +152 ms] Initializing file store
+[        ] [  +27 ms] Skipping target: gen_localizations
+[        ] [  +14 ms] kernel_snapshot: Starting due to {}
+[        ] [  +69 ms] /home/ashutosh/flutter/bin/cache/dart-sdk/bin/dart --disable-dart-dev /home/ashutosh/flutter/bin/cache/artifacts/engine/linux-x64/frontend_server.dart.snapshot --sdk-root /home/ashutosh/flutter/bin/cache/artifacts/engine/common/flutter_patched_sdk/ --target=flutter -Ddart.developer.causal_async_stacks=true -Ddart.vm.profile=false -Ddart.vm.product=false --bytecode-options=source-positions,local-var-info,debugger-stops,instance-field-initializers,keep-unreachable-code,avoid-closure-call-instructions --enable-asserts --track-widget-creation --no-link-platform --packages /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/.packages --output-dill /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/.dart_tool/flutter_build/d87a7e2e7b786627de38147a7ee836de/app.dill --depfile /home/ashutosh/Projects/hackathons/eduthon/Offsubmit/app/.dart_tool/flutter_build/d87a7e2e7b786627de38147a7ee836de/kernel_snapshot.d package:app/main.dart
+[+12575 ms] [+12791 ms] kernel_snapshot: Complete
+[+1300 ms] [+1314 ms] debug_android_application: Starting due to {}
+[ +299 ms] [ +300 ms] debug_android_application: Complete
+[+1299 ms] [+1301 ms] Persisting file store
+[        ] [  +13 ms] Done persisting file store
+[        ] [  +11 ms] build succeeded.
+[        ] [  +17 ms] "flutter assemble" took 16,051ms.
+[        ] [   +6 ms] ensureAnalyticsSent: 0ms
+[        ] [   +3 ms] Running shutdown hooks
+[        ] [        ] Shutdown hooks complete
+[        ] [        ] exiting with code 0
+[ +397 ms] > Task :app:packLibsflutterBuildDebug
+[        ] > Task :app:preBuild UP-TO-DATE
+[        ] > Task :app:preDebugBuild UP-TO-DATE
+[        ] > Task :downloads_path_provider:preBuild UP-TO-DATE
+[        ] > Task :downloads_path_provider:preDebugBuild UP-TO-DATE
+[        ] > Task :file_picker:preBuild UP-TO-DATE
+[        ] > Task :file_picker:preDebugBuild UP-TO-DATE
+[  +97 ms] > Task :flutter_plugin_android_lifecycle:preBuild UP-TO-DATE
+[        ] > Task :flutter_plugin_android_lifecycle:preDebugBuild UP-TO-DATE
+[        ] > Task :flutter_downloader:preBuild UP-TO-DATE
+[        ] > Task :flutter_downloader:preDebugBuild UP-TO-DATE
+[        ] > Task :permission_handler:preBuild UP-TO-DATE
+[  +96 ms] > Task :flutter_downloader:compileDebugAidl NO-SOURCE
+[        ] > Task :downloads_path_provider:compileDebugAidl NO-SOURCE
+[        ] > Task :flutter_plugin_android_lifecycle:compileDebugAidl NO-SOURCE
+[        ] > Task :file_picker:compileDebugAidl NO-SOURCE
+[        ] > Task :permission_handler:preDebugBuild UP-TO-DATE
+[        ] > Task :permission_handler:compileDebugAidl NO-SOURCE
+[        ] > Task :app:compileDebugAidl NO-SOURCE
+[        ] > Task :downloads_path_provider:packageDebugRenderscript NO-SOURCE
+[        ] > Task :file_picker:packageDebugRenderscript NO-SOURCE
+[        ] > Task :flutter_downloader:packageDebugRenderscript NO-SOURCE
+[        ] > Task :flutter_plugin_android_lifecycle:packageDebugRenderscript NO-SOURCE
+[        ] > Task :permission_handler:packageDebugRenderscript NO-SOURCE
+[        ] > Task :app:compileDebugRenderscript NO-SOURCE
+[        ] > Task :app:checkDebugManifest
+[  +94 ms] > Task :app:generateDebugBuildConfig
+[        ] > Task :downloads_path_provider:checkDebugManifest
+[        ] > Task :downloads_path_provider:generateDebugBuildConfig
+[        ] > Task :downloads_path_provider:compileDebugRenderscript NO-SOURCE
+[        ] > Task :downloads_path_provider:generateDebugResValues
+[        ] > Task :downloads_path_provider:generateDebugResources
+[  +97 ms] > Task :downloads_path_provider:packageDebugResources
+[ +200 ms] > Task :file_picker:checkDebugManifest
+[        ] > Task :file_picker:compileDebugRenderscript NO-SOURCE
+[  +99 ms] > Task :file_picker:generateDebugBuildConfig
+[        ] > Task :file_picker:generateDebugResValues
+[        ] > Task :file_picker:generateDebugResources
+[        ] > Task :file_picker:packageDebugResources
+[        ] > Task :downloads_path_provider:javaPreCompileDebug
+[        ] > Task :downloads_path_provider:parseDebugLibraryResources
+[  +98 ms] > Task :flutter_plugin_android_lifecycle:generateDebugResValues
+[        ] > Task :flutter_plugin_android_lifecycle:compileDebugRenderscript NO-SOURCE
+[        ] > Task :flutter_plugin_android_lifecycle:generateDebugResources
+[        ] > Task :flutter_plugin_android_lifecycle:packageDebugResources
+[  +98 ms] > Task :flutter_plugin_android_lifecycle:checkDebugManifest
+[        ] > Task :file_picker:parseDebugLibraryResources
+[        ] > Task :flutter_plugin_android_lifecycle:generateDebugBuildConfig
+[  +98 ms] > Task :flutter_plugin_android_lifecycle:processDebugManifest
+[        ] > Task :downloads_path_provider:processDebugManifest
+[  +99 ms] > Task :file_picker:processDebugManifest
+[        ] > Task :flutter_plugin_android_lifecycle:parseDebugLibraryResources
+[        ] > Task :flutter_downloader:checkDebugManifest
+[        ] > Task :flutter_downloader:compileDebugRenderscript NO-SOURCE
+[  +98 ms] > Task :flutter_downloader:generateDebugBuildConfig
+[        ] > Task :flutter_plugin_android_lifecycle:javaPreCompileDebug
+[        ] > Task :flutter_downloader:generateDebugResValues
+[        ] > Task :flutter_downloader:generateDebugResources
+[ +198 ms] > Task :flutter_downloader:packageDebugResources
+[        ] > Task :downloads_path_provider:generateDebugRFile
+[ +807 ms] > Task :downloads_path_provider:compileDebugJavaWithJavac
+[        ] > Task :flutter_downloader:parseDebugLibraryResources
+[  +91 ms] > Task :flutter_downloader:processDebugManifest
+[        ] > Task :flutter_downloader:javaPreCompileDebug
+[        ] > Task :flutter_plugin_android_lifecycle:generateDebugRFile
+[ +198 ms] > Task :flutter_plugin_android_lifecycle:compileDebugJavaWithJavac
+[        ] > Task :downloads_path_provider:bundleLibCompileDebug
+[        ] > Task :flutter_downloader:generateDebugRFile
+[ +899 ms] > Task :flutter_downloader:compileDebugJavaWithJavac
+[        ] > Task :permission_handler:compileDebugRenderscript NO-SOURCE
+[        ] > Task :permission_handler:checkDebugManifest
+[        ] > Task :permission_handler:generateDebugBuildConfig
+[        ] > Task :file_picker:generateDebugRFile
+[        ] > Task :flutter_downloader:bundleLibCompileDebug
+[        ] > Task :permission_handler:generateDebugResValues
+[        ] > Task :permission_handler:generateDebugResources
+[  +96 ms] > Task :permission_handler:packageDebugResources
+[        ] > Task :permission_handler:processDebugManifest
+[        ] > Task :app:cleanMergeDebugAssets UP-TO-DATE
+[        ] > Task :flutter_plugin_android_lifecycle:bundleLibCompileDebug
+[  +98 ms] > Task :permission_handler:javaPreCompileDebug
+[        ] > Task :permission_handler:parseDebugLibraryResources
+[        ] > Task :file_picker:javaPreCompileDebug
+[ +399 ms] > Task :file_picker:compileDebugJavaWithJavac
+[        ] > Task :permission_handler:generateDebugRFile
+[ +593 ms] > Task :permission_handler:compileDebugJavaWithJavac
+[        ] > Task :file_picker:bundleLibCompileDebug
+[        ] > Task :app:mergeDebugShaders
+[        ] > Task :app:compileDebugShaders
+[        ] > Task :app:generateDebugAssets
+[        ] > Task :downloads_path_provider:mergeDebugShaders
+[        ] > Task :permission_handler:bundleLibCompileDebug
+[ +197 ms] > Task :downloads_path_provider:compileDebugShaders
+[        ] > Task :downloads_path_provider:generateDebugAssets
+[        ] > Task :downloads_path_provider:packageDebugAssets
+[        ] > Task :app:javaPreCompileDebug
+[        ] > Task :file_picker:mergeDebugShaders
+[        ] > Task :file_picker:compileDebugShaders
+[  +97 ms] > Task :file_picker:generateDebugAssets
+[        ] > Task :file_picker:packageDebugAssets
+[        ] > Task :flutter_downloader:mergeDebugShaders
+[        ] > Task :flutter_downloader:compileDebugShaders
+[        ] > Task :flutter_downloader:generateDebugAssets
+[        ] > Task :flutter_downloader:packageDebugAssets
+[        ] > Task :flutter_plugin_android_lifecycle:mergeDebugShaders
+[        ] > Task :flutter_plugin_android_lifecycle:compileDebugShaders
+[        ] > Task :flutter_plugin_android_lifecycle:generateDebugAssets
+[        ] > Task :flutter_plugin_android_lifecycle:packageDebugAssets
+[        ] > Task :permission_handler:mergeDebugShaders
+[        ] > Task :permission_handler:compileDebugShaders
+[        ] > Task :permission_handler:generateDebugAssets
+[        ] > Task :permission_handler:packageDebugAssets
+[  +95 ms] > Task :app:mergeDebugAssets
+[ +300 ms] > Task :app:copyFlutterAssetsDebug
+[        ] > Task :app:mainApkListPersistenceDebug
+[        ] > Task :app:generateDebugResValues
+[        ] > Task :app:generateDebugResources
+[ +599 ms] > Task :app:createDebugCompatibleScreenManifests
+[ +199 ms] > Task :app:processDebugManifest
+[ +100 ms] > Task :app:mergeDebugResources
+[ +499 ms] > Task :app:processDebugResources
+[ +400 ms] > Task :app:compileDebugJavaWithJavac FAILED
+[        ] 82 actionable tasks: 81 executed, 1 up-to-date
+[ +485 ms] Running Gradle task 'assembleDebug'... (completed in 44.3s)
+[   +2 ms] "flutter run" took 45,894ms.
+[ +255 ms] ensureAnalyticsSent: 252ms
+[   +2 ms] Running shutdown hooks
+[        ] Shutdown hook priority 4
+[   +7 ms] Shutdown hooks complete
+[   +1 ms] exiting with code 1
