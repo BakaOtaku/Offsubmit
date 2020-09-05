@@ -5,7 +5,9 @@ import 'package:app/downloadHandler.dart';
 import 'package:app/studentWallet.dart';
 import 'package:app/submissionHandler.dart';
 import 'package:app/uploadHandler.dart';
+import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
@@ -55,15 +57,68 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-      body: FutureBuilder<StudentWallet>(
-        future: StudentWallet.newStudent(),
-        builder: (BuildContext context, AsyncSnapshot<StudentWallet> snapshot) {
-          if (snapshot.hasData) {
-            return GridView.count(
+    return FutureBuilder<StudentWallet>(
+      future: StudentWallet.newStudent(),
+      builder: (BuildContext context, AsyncSnapshot<StudentWallet> snapshot) {
+        if (snapshot.hasData) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Dashboard"),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.person),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext contxt) {
+                        return AlertDialog(
+                          title: Text("About"),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              SelectableText(
+                                  "Private Key : ${snapshot.data.getPrivateKey}"),
+                              SizedBox(height: 20),
+                              SelectableText(
+                                  "Credential Address : ${snapshot.data.getCredAddress}"),
+                            ],
+                          ),
+                          actions: [
+                            FlatButton(
+                              child: Text("OK"),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            FlatButton(
+                              child: Text("Copy"),
+                              onPressed: () {
+                                ClipboardManager.copyToClipBoard(
+                                        "Private Key : ${snapshot.data.getPrivateKey} Credential Address : ${snapshot.data.getCredAddress}")
+                                    .then(
+                                  (result) {
+                                    Fluttertoast.showToast(
+                                      msg: "Copied to clipboard",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Colors.grey,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                )
+              ],
+            ),
+            body: GridView.count(
               crossAxisCount: 2,
               children: <Widget>[
                 dispCard("Download", DownloadHandler()),
@@ -71,9 +126,11 @@ class _HomePageState extends State<HomePage> {
                 dispCard("Submit", SubmissionHandler()),
                 dispCard("Upload", UploadHandler()),
               ],
-            );
-          } else {
-            return Center(
+            ),
+          );
+        } else {
+          return Scaffold(
+            body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -82,10 +139,10 @@ class _HomePageState extends State<HomePage> {
                   Text("Getting student wallet")
                 ],
               ),
-            );
-          }
-        },
-      ),
+            ),
+          );
+        }
+      },
     );
   }
 

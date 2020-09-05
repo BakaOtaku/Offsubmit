@@ -9,6 +9,9 @@ class StudentWallet {
     credentialAddress = address;
   }
 
+  String get getPrivateKey => privateKey;
+  String get getCredAddress => credentialAddress;
+
   static Future<StudentWallet> newStudent() async {
     http.Response value =
         await http.get('https://tokensprtify.herokuapp.com/newStudentWallet');

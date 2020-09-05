@@ -22,6 +22,9 @@ class _SubmissionHandlerState extends State<SubmissionHandler> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Submissions"),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -69,9 +72,9 @@ class _SubmissionHandlerState extends State<SubmissionHandler> {
                           Fluttertoast.showToast(
                             msg: "Copied to clipboard",
                             toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
+                            gravity: ToastGravity.BOTTOM,
                             timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.red,
+                            backgroundColor: Colors.grey,
                             textColor: Colors.white,
                             fontSize: 16.0,
                           );
@@ -79,6 +82,10 @@ class _SubmissionHandlerState extends State<SubmissionHandler> {
                       );
                     },
                   ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Copy the text above and send an SMS to your course instructor",
+                  )
                 ],
               ),
             ),
