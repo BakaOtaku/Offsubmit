@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:app/decryptHandler.dart';
 import 'package:app/downloadHandler.dart';
+import 'package:app/studentWallet.dart';
+import 'package:app/submissionHandler.dart';
 import 'package:app/uploadHandler.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -12,11 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _subId = TextEditingController();
   File file;
-  // TextEditingController _controller = TextEditingController();
-  // TextEditingController _controller = TextEditingController();
-  // TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
@@ -61,20 +59,53 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Dashboard"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              // Download
-              DownloadHandler(),
-              SizedBox(height: 20),
-              Decrypthandler(),
-              SizedBox(height: 20),
-              // Upload
-              UploadHandler(),
-            ],
+      body: FutureBuilder<StudentWallet>(
+        future: StudentWallet.newStudent(),
+        builder: (BuildContext context, AsyncSnapshot<StudentWallet> snapshot) {
+          if (snapshot.hasData) {
+            return GridView.count(
+              crossAxisCount: 2,
+              children: <Widget>[
+                dispCard("Download", DownloadHandler()),
+                dispCard("Decrypt", Decrypthandler()),
+                dispCard("Submit", SubmissionHandler()),
+                dispCard("Upload", UploadHandler()),
+              ],
+            );
+          } else {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 20),
+                  Text("Getting student wallet")
+                ],
+              ),
+            );
+          }
+        },
+      ),
+    );
+  }
+
+  Widget dispCard(String name, Widget page) {
+    return Card(
+      child: Center(
+        child: ListTile(
+          title: Text(
+            name,
+            textAlign: TextAlign.center,
           ),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return page;
+                },
+              ),
+            );
+          },
         ),
       ),
     );

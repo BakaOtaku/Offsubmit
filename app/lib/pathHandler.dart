@@ -16,6 +16,6 @@ class PathHandler {
     //   print("Error pathhandler.dart: Could not get path");
     //   filePath = 'Failed to get path';
     // }
-    return downloadsDirectory.path;
+    return downloadsDirectory.path + "/manual.pdf";
   }
 }

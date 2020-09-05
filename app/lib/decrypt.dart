@@ -5,6 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:tuple/tuple.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 
+@deprecated
 String encryptAESCryptoJS(String plainText, String passphrase) {
   try {
     final salt = genRandomWithNonZero(8);
@@ -23,6 +24,7 @@ String encryptAESCryptoJS(String plainText, String passphrase) {
   }
 }
 
+@deprecated
 String decryptAESCryptoJS(String encrypted, String passphrase) {
   try {
     Uint8List encryptedBytesWithSalt = base64.decode(encrypted);
@@ -44,6 +46,7 @@ String decryptAESCryptoJS(String encrypted, String passphrase) {
   }
 }
 
+@deprecated
 Tuple2<Uint8List, Uint8List> deriveKeyAndIV(String passphrase, Uint8List salt) {
   var password = createUint8ListFromString(passphrase);
   Uint8List concatenatedHashes = Uint8List(0);
@@ -68,6 +71,7 @@ Tuple2<Uint8List, Uint8List> deriveKeyAndIV(String passphrase, Uint8List salt) {
   return new Tuple2(keyBtyes, ivBtyes);
 }
 
+@deprecated
 Uint8List createUint8ListFromString(String s) {
   var ret = new Uint8List(s.length);
   for (var i = 0; i < s.length; i++) {
@@ -76,6 +80,7 @@ Uint8List createUint8ListFromString(String s) {
   return ret;
 }
 
+@deprecated
 Uint8List genRandomWithNonZero(int seedLength) {
   final random = Random.secure();
   const int randomMax = 245;

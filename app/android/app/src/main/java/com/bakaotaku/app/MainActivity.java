@@ -46,7 +46,6 @@ public class MainActivity extends FlutterActivity {
               String input = (String) arguments.get("inputPath");
               String output = (String) arguments.get("outputPath");
             decryptedFile(pass,input,output);
-            //  String myMessage =  Boolean.toString(deviceStatus);
             result.success("success==");
           }
         });

@@ -5,19 +5,22 @@ class UploadHandler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextFormField(
-          controller: _uploadLink,
-          decoration: InputDecoration(
-            labelText: "Link",
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextFormField(
+            controller: _uploadLink,
+            decoration: InputDecoration(
+              labelText: "Link",
+            ),
           ),
-        ),
-        RaisedButton(
-          onPressed: () {},
-          child: Text("Upload"),
-        ),
-      ],
+          RaisedButton(
+            onPressed: () {},
+            child: Text("Upload"),
+          ),
+        ],
+      ),
     );
   }
 }
