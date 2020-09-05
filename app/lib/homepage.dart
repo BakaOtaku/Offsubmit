@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:app/decryptHandler.dart';
 import 'package:app/downloadHandler.dart';
 import 'package:app/uploadHandler.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _password = TextEditingController();
   TextEditingController _subId = TextEditingController();
+  File file;
   // TextEditingController _controller = TextEditingController();
   // TextEditingController _controller = TextEditingController();
   // TextEditingController _controller = TextEditingController();
@@ -63,24 +66,12 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              // Download
               DownloadHandler(),
               SizedBox(height: 20),
-              RaisedButton(
-                onPressed: () {},
-                child: Text("Choose File"),
-              ),
-              TextFormField(
-                controller: _password,
-                decoration: InputDecoration(
-                  // hintText: "Password",
-                  labelText: "Password",
-                ),
-              ),
-              RaisedButton(
-                onPressed: () {},
-                child: Text("Decrypt"),
-              ),
+              Decrypthandler(),
               SizedBox(height: 20),
+              // Upload
               UploadHandler(),
             ],
           ),
