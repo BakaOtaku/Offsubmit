@@ -197,6 +197,23 @@ public class Eduthon {
             return e.getMessage();
         }
     }
+
+    @RequestMapping(value = "/ipfsStore",method = RequestMethod.POST)
+    public String ipfsStore(@RequestParam("file") MultipartFile file) {
+        File temp = null;
+        try {
+            temp = File.createTempFile("hashed",".sha");
+            file.transferTo(temp);
+            IPFS ipfs = new IPFS("/dnsaddr/ipfs.infura.io/tcp/5001/https");
+            NamedStreamable.InputStreamWrapper is = new NamedStreamable.InputStreamWrapper(new FileInputStream(temp));
+            MerkleNode response = ipfs.add(is).get(0);
+            String responseHash = response.hash.toBase58();
+            System.out.println("Hash (base 58): " + response.name.get() + " - " + response.hash.toBase58());
+            return responseHash;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage();
+        }
+    }
 }
-//97d8cb40d55f97fa4a9dcbb9d89b159128b95043edfd835467553f3b5c69d7af 0x5BA3Ad623fFcAF030760405a10eBF44fB04eD774 FINALTESTING
-// 97d8cb40d55f97fa4a9dcbb9d89b159128b95043edfd835467553f3b5c69d7af:0x5BA3Ad623fFcAF030760405a10eBF44fB04eD774:finalTesting2
