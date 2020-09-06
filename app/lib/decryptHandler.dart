@@ -65,7 +65,7 @@ class _DecrypthandlerState extends State<Decrypthandler> {
                 Map<String, dynamic> arguments = {
                   'password': _password.text,
                   'inputPath': file.path,
-                  'outputPath': await PathHandler.getPath(),
+                  'outputPath': await PathHandler.getOutputDir(),
                 };
                 try {
                   await platformChannel.invokeMethod("decrypt-AES", arguments);
