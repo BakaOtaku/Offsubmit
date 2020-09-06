@@ -12,6 +12,7 @@ class UploadHandler extends StatefulWidget {
 
 class _UploadHandlerState extends State<UploadHandler> {
   File file;
+  bool _fileVisibility = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +26,26 @@ class _UploadHandlerState extends State<UploadHandler> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Visibility(
+              visible: _fileVisibility,
+              child: Text(file?.path?.split("/")?.last ?? ''),
+            ),
+            SizedBox(height: 30),
             RaisedButton(
               child: Text("Choose File"),
               onPressed: () async {
                 file = await FilePicker.getFile(type: FileType.any);
                 print("File path: ${file.absolute}");
+                setState(() {
+                  if (file != null) {
+                    _fileVisibility = true;
+                  } else {
+                    _fileVisibility = false;
+                  }
+                });
               },
             ),
+            SizedBox(height: 20),
             RaisedButton(
               child: Text("Upload"),
               onPressed: () async {
