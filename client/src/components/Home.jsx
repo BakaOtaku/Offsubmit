@@ -30,7 +30,7 @@ class Home extends Component {
                                     Student's side Android and ios application where students will have to download the AES encrypted question papers of all exams collectively before 10-15days of exams.
                                     And can attemp paper on the date with SMS OTP key without internet. 
                                 </div>
-                                <button className="create-course">Open App</button>
+                                <a href="https://github.com/BakaOtaku/Offsubmit/releases/"><button className="create-course">Get App</button></a>
                             </div>
                         </div>
                     </div>
