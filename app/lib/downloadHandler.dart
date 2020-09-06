@@ -34,7 +34,7 @@ class _DownloadHandlerState extends State<DownloadHandler> {
               onPressed: () async {
                 final taskId = await FlutterDownloader.enqueue(
                   url: _downloadLink.text,
-                  savedDir: await PathHandler.getPath(),
+                  savedDir: await PathHandler.getDownloadDir(),
                   showNotification: true,
                   openFileFromNotification: true,
                 );
