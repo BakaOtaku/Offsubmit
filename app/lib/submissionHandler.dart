@@ -15,6 +15,7 @@ class SubmissionHandler extends StatefulWidget {
 class _SubmissionHandlerState extends State<SubmissionHandler> {
   final TextEditingController _subController = TextEditingController();
 
+  bool _fileVisibility = false;
   File file;
   String data = '';
   bool visible = false;
@@ -30,19 +31,33 @@ class _SubmissionHandlerState extends State<SubmissionHandler> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Visibility(
+              visible: _fileVisibility,
+              child: Text(file?.path?.split("/")?.last ?? ''),
+            ),
+            SizedBox(height: 30),
             RaisedButton(
               child: Text("Choose File"),
               onPressed: () async {
                 file = await FilePicker.getFile(type: FileType.any);
                 print("File path: ${file.absolute}");
+                setState(() {
+                  if (file != null) {
+                    _fileVisibility = true;
+                  } else {
+                    _fileVisibility = false;
+                  }
+                });
               },
             ),
+            SizedBox(height: 30),
             TextFormField(
               controller: _subController,
               decoration: InputDecoration(
                 labelText: "Subject ID",
               ),
             ),
+            SizedBox(height: 20),
             RaisedButton(
               child: Text("Generate"),
               onPressed: () async {

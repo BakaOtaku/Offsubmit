@@ -14,6 +14,7 @@ class _DecrypthandlerState extends State<Decrypthandler> {
   TextEditingController _password = TextEditingController();
   var platformChannel = MethodChannel("exam");
   File file;
+  bool _fileVisibility = false;
   @override
   void initState() {
     super.initState();
@@ -30,19 +31,33 @@ class _DecrypthandlerState extends State<Decrypthandler> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Visibility(
+              visible: _fileVisibility,
+              child: Text(file?.path?.split("/")?.last ?? ''),
+            ),
+            SizedBox(height: 30),
             RaisedButton(
               child: Text("Choose File"),
               onPressed: () async {
                 file = await FilePicker.getFile(type: FileType.any);
                 print("File path: ${file.absolute}");
+                setState(() {
+                  if (file != null) {
+                    _fileVisibility = true;
+                  } else {
+                    _fileVisibility = false;
+                  }
+                });
               },
             ),
+            SizedBox(height: 30),
             TextFormField(
               controller: _password,
               decoration: InputDecoration(
                 labelText: "Password",
               ),
             ),
+            SizedBox(height: 20),
             RaisedButton(
               child: Text("Decrypt"),
               onPressed: () async {
