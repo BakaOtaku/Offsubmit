@@ -2,8 +2,12 @@
 <a href=""><h1 align="center">Off Submit</h1></a>
 <h4 align="center">Making online exams happen offline</h4>
 
-[Web Platform](https://github.com/BakaOtaku/Offsubmit/releases/)
+## Live Links
+
+[Web Platform](https://offsubmit.vercel.app/)
+
 [Mobile App](https://github.com/BakaOtaku/Offsubmit/releases/)
+
 [Presentation](./Presentation.pdf)
 
 ## The problem:
