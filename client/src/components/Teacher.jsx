@@ -155,11 +155,11 @@ function Teacher() {
         return (
             <div>
                 <h3 className="text-light">Course Created Please message these</h3>
-                <span>Private Key: {show.pkey}</span>
+                <span>File Password: {show.pkey}</span>
                 <br />
-                <span>File link: <a>{show.file_link}</a></span>
+                <span>File link: {show.file_link}</span>
                 <br />
-                <span>Course Address: {show.cs}</span>
+                <span>Subject Id: {show.cs}</span>
             </div >
         )
     }
@@ -168,7 +168,7 @@ function Teacher() {
         <div>
             <svg id="wavy-header" viewBox="0 0 761 117" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M224.211 115.669C47.737 120.607 0 76 0 76V0h761v92c-112.975-8.266-183.614-38.828-386.942 2.247-51.942 10.493-77.912 15.739-99.206 18.17-21.294 2.43-31.076 2.704-50.641 3.252z" fill="#23374d" /></svg>
-            <div className="topleft"> Aman UX vala ✨</div>
+                <a href="/"><div className="topleft"> 💫 Off Submit ✨</div></a>
             <div className="container">
                 <h1 className="text-box">
                     <span style={{ fontWeight: '400' }}>Teacher's Application</span>
@@ -189,13 +189,6 @@ function Teacher() {
                                     type="file"
                                     id="file"
                                     onChange={handleFileUpload}
-                                />
-                                <h3 className="text-light">Choose Exam Start time</h3>
-                                <input
-                                    className="exam-date"
-                                    type="datetime-local"
-                                    id="birthdaytime"
-                                    name="birthdaytime"
                                 />
                                 <h3 className="text-light">Choose Exam End time</h3>
                                 <input
@@ -233,7 +226,6 @@ function Teacher() {
         </div>
     )
 }
-
 
 
 export default Teacher;
