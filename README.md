@@ -1,16 +1,15 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/42104907/92314962-af4bd100-effc-11ea-91cf-9fac2e3e8648.png" align="center" width="400"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/42104907/92333400-ccd37600-f0a2-11ea-96d8-08cb2b73a1a9.png" align="center" width="450"></p>
 <a href=""><h1 align="center">Off Submit</h1></a>
 <h4 align="center">Making online exams happen offline</h4>
 
+## Winners of [Eduthon](https://eduthon.devfolio.co/) Hackathon
+
 ## Live Links
-
-[Web Platform](https://offsubmit.vercel.app/)
-
-[Mobile App](https://github.com/BakaOtaku/Offsubmit/releases/download/0.1.1/app.0.1.1.apk)
-
-[Presentation Video](https://www.youtube.com/watch?v=KLUQxOb6yjI)
-
-[Presentation File](./Presentation.pdf)
+- [📽  Project Demo](https://youtu.be/PfmZYTjtKCk)
+- [💻 Web Platform](https://offsubmit.vercel.app/)   
+- [📱   Mobile App](https://github.com/BakaOtaku/Offsubmit/releases/)
+- [📹  Presentation Video](https://www.youtube.com/watch?v=KLUQxOb6yjI)
+- [👨🏻‍💼 Presentation File](./Presentation.pdf)
 
 ## The problem:
 
