@@ -1,4 +1,4 @@
-export const CourseCreatorAddress = '0x186fec18bf4783cd08d65c1c7c9bbb32e1d22ec6';
+export const CourseCreatorAddress = '0x7a88e2180F093E05Aa5744C5100BA0373B89CBbF';
 export const CourseCreatorAbi = [
   {
     constant: true,

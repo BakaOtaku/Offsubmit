@@ -20,7 +20,8 @@ function Teacher() {
 
     useEffect(() => {
         const loadBlockchaindata = async () => {
-            const portis = new Portis('148b0f9b-ca4d-4998-bf3c-7707b7b93c0a', 'rinkeby');
+            setLoading(true);
+            const portis = new Portis('148b0f9b-ca4d-4998-bf3c-7707b7b93c0a', 'maticMumbai');
             // const web3 = new Web3(Web3.givenProvider);
             const web3 = new Web3(portis.provider)
             await web3.eth.net.getNetworkType();
@@ -28,6 +29,7 @@ function Teacher() {
             if (accounts) {
                 setAccount(accounts[0]);
                 console.log(account);
+                setLoading(false);
             } else {
                 window.alert("No web3? You should consider trying MetaMask!")
             }
@@ -53,7 +55,7 @@ function Teacher() {
         console.log(privateKey, fh);
 
         // 2.  Create course functionality for a new registered course
-        const portis = new Portis('148b0f9b-ca4d-4998-bf3c-7707b7b93c0a', 'rinkeby');
+        const portis = new Portis('148b0f9b-ca4d-4998-bf3c-7707b7b93c0a', 'maticMumbai');
         const web3 = new Web3(portis.provider);
         await web3.eth.net.getNetworkType();
 
@@ -67,9 +69,10 @@ function Teacher() {
             (error, result) => {
                 console.log(`Course ${result}`);
                 t = result;
-                setCourseAddress(result);
             });
 
+
+        setCourseAddress(t);
         // setShow(`Private Key: ${privateKey} \n File link: https://ipfs.io/ipfs/${fh} \n Course Address: ${courseAddress}`);
         setShow({
             pkey: privateKey,
@@ -83,14 +86,24 @@ function Teacher() {
     const handleGetAnswer = async (e) => {
         e.preventDefault();
 
-        // let hash;
-        // const portis = new Portis('148b0f9b-ca4d-4998-bf3c-7707b7b93c0a', 'rinkeby');
-        // const web3 = new Web3(portis.provider)
-        // const course = new web3.eth.Contract(CourseAbi, courseAddress);
-        // await course.methods.fileHash(studentId).call({ from: account }, (error, result) => {
-        //     console.log(`fileHash ${result}`);
-        //     hash = result;
-        // });
+        let hash;
+        const portis = new Portis('148b0f9b-ca4d-4998-bf3c-7707b7b93c0a', 'maticMumbai');
+        const web3 = new Web3(portis.provider);
+        const courseCreator = new web3.eth.Contract(CourseCreatorAbi, CourseCreatorAddress);
+        let t;
+        await courseCreator.methods.fetchCourseAddress().call({ from: account },
+            (error, result) => {
+                console.log(`Course ${result}`);
+                t=result;
+            });
+
+        const course = new web3.eth.Contract(CourseAbi, t);
+        console.log(t);
+        await course.methods.fileHash(studentId).call({ from: account }, (error, result) => {
+            console.log(`fileHash ${result}`);
+            hash = result;
+        });
+        console.log(hash);
 
         const x = await axios({
             url: link,
@@ -100,7 +113,7 @@ function Teacher() {
         const file2 = new Blob([x.data]);
         const formData = new FormData();
         formData.append('file', file2);
-        formData.append('comparisonHash', '0e24d1abaf223d5730e40ba882237014fac448d5885e1');
+        formData.append('comparisonHash', hash);
         const res = await axios.post(`https://tokensprtify.herokuapp.com/fileHashMatch`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
