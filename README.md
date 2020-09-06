@@ -6,9 +6,11 @@
 
 [Web Platform](https://offsubmit.vercel.app/)
 
-[Mobile App](https://github.com/BakaOtaku/Offsubmit/releases/)
+[Mobile App](https://github.com/BakaOtaku/Offsubmit/releases/download/0.1.1/app.0.1.1.apk)
 
-[Presentation](./Presentation.pdf)
+[Presentation Video](https://www.youtube.com/watch?v=KLUQxOb6yjI)
+
+[Presentation File](./Presentation.pdf)
 
 ## The problem:
 
