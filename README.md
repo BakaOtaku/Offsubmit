@@ -20,6 +20,8 @@
 
 ## How it solves:
 
+The teacher will get a **Portis** wallet for creating an Ethereum (on **Matic**) smart contract for his course  and upload his question paper which will then be AES-128 encrypted and stored on IPFS. 
+
 10 to 15 days before the exam, students will have to download the AES encrypted question papers of all exams collectively. Since now the student has sufficient time so there are no worries of slow internet speed.
 
 Just before the beginning of each exam, the teacher will SMS the password to unlock that question paper and the app will decrypt the question paper so that students can now see it and start with the exam.
@@ -38,10 +40,11 @@ Now the professor can download the answer sheets and do the evaluation.
 
 ## Unique Selling Points
 
+
+- The app is Ethereum + **Matic** based which allots a **Portis** wallet to teacher and a wallet id on phone app to students to ensure their easy on boarding.
 - The app can be scaled to an offline Moodle app for exam .
 - The app does not use System time to keep track of submission as System time can be changed.
 - The app leverages Proof of Existence protocol of Blockchain to ensure the scrutiny of submitted answer sheets.
-- The app is Ethereum based which allots a wallet id to students to ensure their easy on boarding.
 - Students are not restricted to use a particular mobile no. for submission.
 - They have to just send the generated SMS.
 - The professor just requires a Portis wallet with some Matic Ether and he can be easily onboarded.
