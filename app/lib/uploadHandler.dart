@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -13,6 +14,8 @@ class UploadHandler extends StatefulWidget {
 class _UploadHandlerState extends State<UploadHandler> {
   File file;
   bool _fileVisibility = false;
+  String ipfshash = '';
+  bool _visibility = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +63,22 @@ class _UploadHandlerState extends State<UploadHandler> {
                     ),
                   );
                 var response = await request.send();
-                if (response.statusCode == 200) {
+                print("Got streamed response");
+                http.Response response2 =
+                    await http.Response.fromStream(response);
+                print("Result response2: ${response2.statusCode}");
+                print("Body response2: ${response2.body}");
+                // return response2.body;
+                if (response2.statusCode == 200) {
                   print('Uploaded!');
+                  setState(() {
+                    ipfshash = response2.body;
+                    if (file != null) {
+                      _visibility = true;
+                    } else {
+                      _visibility = false;
+                    }
+                  });
                   Fluttertoast.showToast(
                     msg: "File Uploaded",
                     toastLength: Toast.LENGTH_SHORT,
@@ -72,7 +89,16 @@ class _UploadHandlerState extends State<UploadHandler> {
                     fontSize: 16.0,
                   );
                 } else {
-                  print(response.statusCode);
+                  print("Error: ${response.statusCode}");
+                  Fluttertoast.showToast(
+                    msg: "Uploaded Failed ${response.statusCode}",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.grey,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
                 }
 
                 // http.Response response = await http.post(
@@ -87,6 +113,33 @@ class _UploadHandlerState extends State<UploadHandler> {
                 // );
                 // print("Upload Response: ${response.body}");
               },
+            ),
+            SizedBox(height: 30),
+            Visibility(
+              visible: _visibility,
+              child: Column(
+                children: [
+                  SelectableText(ipfshash),
+                  IconButton(
+                    icon: Icon(Icons.content_copy),
+                    onPressed: () {
+                      ClipboardManager.copyToClipBoard(ipfshash).then(
+                        (result) {
+                          Fluttertoast.showToast(
+                            msg: "Copied Hash to clipboard",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.grey,
+                            textColor: Colors.white,
+                            fontSize: 16.0,
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),
