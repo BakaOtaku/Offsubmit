@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:app/decryptHandler.dart';
 import 'package:app/downloadHandler.dart';
+import 'package:app/shared.dart';
 import 'package:app/studentWallet.dart';
 import 'package:app/submissionHandler.dart';
 import 'package:app/uploadHandler.dart';
@@ -57,76 +58,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final credAdd = Shared.pref.getString(Shared.credentialAddress);
+    final privKey = Shared.pref.getString(Shared.privateKey);
+    if (credAdd != null && privKey != null) {
+      print("Saved Wallet: $privKey $credAdd");
+      StudentWallet.set(privKey, credAdd);
+      return body(privateKey: privKey, credAddress: credAdd);
+    }
+
     return FutureBuilder<StudentWallet>(
       future: StudentWallet.newStudent(),
       builder: (BuildContext context, AsyncSnapshot<StudentWallet> snapshot) {
         if (snapshot.hasData) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text("Dashboard"),
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.person),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext contxt) {
-                        return AlertDialog(
-                          title: Text("About"),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              SelectableText(
-                                  "Private Key : ${snapshot.data.getPrivateKey}"),
-                              SizedBox(height: 20),
-                              SelectableText(
-                                  "Credential Address : ${snapshot.data.getCredAddress}"),
-                            ],
-                          ),
-                          actions: [
-                            FlatButton(
-                              child: Text("OK"),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                            FlatButton(
-                              child: Text("Copy"),
-                              onPressed: () {
-                                ClipboardManager.copyToClipBoard(
-                                        "Private Key : ${snapshot.data.getPrivateKey} Credential Address : ${snapshot.data.getCredAddress}")
-                                    .then(
-                                  (result) {
-                                    Fluttertoast.showToast(
-                                      msg: "Copied to clipboard",
-                                      toastLength: Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
-                                      backgroundColor: Colors.grey,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0,
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                )
-              ],
-            ),
-            body: GridView.count(
-              crossAxisCount: 2,
-              children: <Widget>[
-                dispCard("Download", DownloadHandler()),
-                dispCard("Decrypt", Decrypthandler()),
-                dispCard("Submit", SubmissionHandler()),
-                dispCard("Upload", UploadHandler()),
-              ],
-            ),
+          Shared.pref.setString(
+              Shared.credentialAddress, snapshot.data.getCredAddress);
+          Shared.pref.setString(Shared.privateKey, snapshot.data.getPrivateKey);
+
+          return body(
+            credAddress: snapshot.data.getCredAddress,
+            privateKey: snapshot.data.getPrivateKey,
           );
         } else {
           return Scaffold(
@@ -143,6 +93,74 @@ class _HomePageState extends State<HomePage> {
           );
         }
       },
+    );
+  }
+
+  Widget body({@required String privateKey, @required String credAddress}) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Dashboard"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext contxt) {
+                  return AlertDialog(
+                    title: Text("About"),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        SelectableText("Private Key : $privateKey"),
+                        SizedBox(height: 20),
+                        SelectableText("Credential Address : $credAddress"),
+                      ],
+                    ),
+                    actions: [
+                      FlatButton(
+                        child: Text("OK"),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      FlatButton(
+                        child: Text("Copy"),
+                        onPressed: () {
+                          ClipboardManager.copyToClipBoard(
+                                  "Private Key : $privateKey Credential Address : $credAddress")
+                              .then(
+                            (result) {
+                              Fluttertoast.showToast(
+                                msg: "Copied to clipboard",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.grey,
+                                textColor: Colors.white,
+                                fontSize: 16.0,
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          )
+        ],
+      ),
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: <Widget>[
+          dispCard("Download", DownloadHandler()),
+          dispCard("Decrypt", Decrypthandler()),
+          dispCard("Submit", SubmissionHandler()),
+          dispCard("Upload", UploadHandler()),
+        ],
+      ),
     );
   }
 

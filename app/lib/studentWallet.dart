@@ -9,6 +9,11 @@ class StudentWallet {
     credentialAddress = address;
   }
 
+  static void set(String key, String address) {
+    credentialAddress = address;
+    privateKey = key;
+  }
+
   String get getPrivateKey => privateKey;
   String get getCredAddress => credentialAddress;
 
